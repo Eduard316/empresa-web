@@ -1,34 +1,152 @@
-<h2 style="padding:20px">HOMBRES</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alducin&Ruiz | Hombres</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="closet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #111;
+    }
 
-  <div class="closet-item">
-    <img src="images/mezclilla1.jpg" alt="Pantalón Mezclilla">
-    <p>Pantalón Mezclilla</p>
-    <span>$699 MXN</span>
+    header {
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    h2 {
+      padding: 20px;
+      margin: 0;
+    }
+
+    /* CLOSET HORIZONTAL */
+    .closet {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 16px;
+      padding: 20px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .closet::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .closet::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+
+    .closet-item {
+      flex: 0 0 75%;
+      max-width: 75%;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+    }
+
+    .closet-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .closet-item p {
+      margin: 10px 10px 4px;
+      font-size: 1rem;
+    }
+
+    .closet-item span {
+      margin: 0 10px 12px;
+      display: block;
+      font-weight: bold;
+    }
+
+    /* BOTÓN VOLVER */
+    .back-home {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .back-home a {
+      display: inline-block;
+      padding: 12px 26px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">← ALDUCIN&RUIZ</a>
+  </header>
+
+  <!-- TITULO -->
+  <h2>HOMBRES</h2>
+
+  <!-- CLOSET -->
+  <div class="closet">
+
+    <div class="closet-item">
+      <img src="images/mezclilla1.jpg" alt="Pantalón Mezclilla">
+      <p>Pantalón Mezclilla</p>
+      <span>$699 MXN</span>
+    </div>
+
+    <div class="closet-item">
+      <img src="images/pans1.jpg" alt="Pants Deportivo">
+      <p>Pants Deportivo</p>
+      <span>$599 MXN</span>
+    </div>
+
+    <div class="closet-item">
+      <img src="images/pijama1.jpg" alt="Pijama">
+      <p>Pijama</p>
+      <span>$499 MXN</span>
+    </div>
+
+    <div class="closet-item">
+      <img src="images/militar1.jpg" alt="Conjunto Militar">
+      <p>Conjunto Militar</p>
+      <span>$799 MXN</span>
+    </div>
+
   </div>
 
-  <div class="closet-item">
-    <img src="images/pans1.jpg" alt="Pants Deportivo">
-    <p>Pants Deportivo</p>
-    <span>$599 MXN</span>
+  <!-- BOTÓN REGRESAR -->
+  <div class="back-home">
+    <a href="index.html">⬅ Volver al menú principal</a>
   </div>
 
-  <div class="closet-item">
-    <img src="images/pijama1.jpg" alt="Pijama">
-    <p>Pijama</p>
-    <span>$499 MXN</span>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Alducin&Ruiz. Todos los derechos reservados.
+  </footer>
 
-  <div class="closet-item">
-    <img src="images/militar1.jpg" alt="Conjunto Militar">
-    <p>Conjunto Militar</p>
-    <span>$799 MXN</span>
-  </div>
-
-</div>
-
-<!-- BOTON VOLVER -->
-<div class="back-home">
-  <a href="index.html">⬅ Volver al inicio</a>
-</div>
+</body>
+</html>
