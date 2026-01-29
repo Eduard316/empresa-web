@@ -2,213 +2,279 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tienda de Ropa | Catálogo</title>
+  <title>Alducin&Ruiz | Tienda Oficial</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
-      color: #0f172a;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
     }
 
-    /* NAV */
-    nav {
-      background: #020617;
-      padding: 15px 30px;
+    /* TOP BAR */
+    .top-bar {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 6px;
+      font-size: 0.85rem;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: auto;
+      padding: 15px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
-    nav .logo {
-      color: #22c55e;
+    .logo {
+      font-size: 1.4rem;
       font-weight: bold;
-      font-size: 1.2rem;
+      letter-spacing: 1px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
 
-    nav ul li a {
-      color: #e5e7eb;
-      text-decoration: none;
+    nav ul li {
+      font-weight: bold;
+      font-size: 0.95rem;
     }
 
-    /* LAYOUT */
-    .container {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 40px auto;
+    nav ul li a {
+      text-decoration: none;
+      color: #111;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 20px;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* PRODUCTS */
+    .products {
+      max-width: 1300px;
+      margin: 60px auto;
       padding: 0 20px;
     }
 
-    /* PRODUCTOS */
-    .products {
+    .products h2 {
+      font-size: 1.6rem;
+      margin-bottom: 30px;
+    }
+
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 25px;
     }
 
     .product-card {
-      background: white;
-      border-radius: 12px;
+      border: 1px solid #e5e7eb;
       padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .product-img {
+    .product-placeholder {
       background: #e5e7eb;
-      height: 160px;
-      border-radius: 8px;
+      height: 200px;
       margin-bottom: 15px;
     }
 
     .product-card h3 {
-      margin: 0 0 10px;
       font-size: 1rem;
+      margin: 0 0 5px;
     }
 
     .price {
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-top: 10px;
     }
 
-    .btn {
-      background: #22c55e;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
+    /* FOOTER */
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 60px 20px;
+      margin-top: 60px;
     }
 
-    .btn:hover {
-      background: #16a34a;
+    .footer-container {
+      max-width: 1300px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
     }
 
-    /* SIDEBAR */
-    .sidebar {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      height: fit-content;
-    }
-
-    .sidebar h4 {
-      margin-top: 0;
+    footer h4 {
       margin-bottom: 15px;
     }
 
-    .sidebar p {
+    footer p {
       font-size: 0.9rem;
-      margin-bottom: 10px;
+      margin: 6px 0;
     }
 
-    footer {
-      background: #020617;
-      color: #e5e7eb;
+    .footer-bottom {
       text-align: center;
-      padding: 20px;
       margin-top: 40px;
+      font-size: 0.8rem;
+      color: #aaa;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">SABINO</div>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Ofertas</a></li>
-      <li><a href="#">Ubicación</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </nav>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    ENVÍO GRATIS EN PEDIDOS MAYORES A $999
+  </div>
 
-  <!-- CONTENIDO -->
-  <div class="container">
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">ALDUCIN&RUIZ</div>
 
-    <!-- PRODUCTOS -->
-    <div class="products">
+      <nav>
+        <ul>
+          <li><a href="#">HOMBRES</a></li>
+          <li><a href="#">MUJERES</a></li>
+          <li><a href="#">NOVEDADES</a></li>
+          <li><a href="#">OFERTAS</a></li>
+        </ul>
+      </nav>
 
-      <div class="product-card">
-        <div class="product-img"></div>
-        <h3>Playera Básica</h3>
-        <div class="price">$299 MXN</div>
-        <button class="btn">Agregar</button>
+      <div class="nav-right">
+        <span>Buscar</span>
+        <span>Cuenta</span>
+        <span>Carrito</span>
       </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>IMPULSA TU ESTILO</h1>
+    <p>
+      Moda urbana y deportiva diseñada para marcar presencia.
+      Calidad, diseño y actitud.
+    </p>
+    <a href="#" class="btn">COMPRAR AHORA</a>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <h2>NUESTROS PRODUCTOS</h2>
+
+    <div class="product-grid">
 
       <div class="product-card">
-        <div class="product-img"></div>
-        <h3>Sudadera Urbana</h3>
-        <div class="price">$599 MXN</div>
-        <button class="btn">Agregar</button>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"></div>
-        <h3>Camisa Casual</h3>
-        <div class="price">$449 MXN</div>
-        <button class="btn">Agregar</button>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"></div>
-        <h3>Pantalón Slim</h3>
-        <div class="price">$699 MXN</div>
-        <button class="btn">Agregar</button>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"></div>
-        <h3>Hoodie Premium</h3>
-        <div class="price">$799 MXN</div>
-        <button class="btn">Agregar</button>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"></div>
-        <h3>Chamarra</h3>
+        <div class="product-placeholder"></div>
+        <h3>Producto 1</h3>
         <div class="price">$999 MXN</div>
-        <button class="btn">Agregar</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-placeholder"></div>
+        <h3>Producto 2</h3>
+        <div class="price">$899 MXN</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-placeholder"></div>
+        <h3>Producto 3</h3>
+        <div class="price">$1,199 MXN</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-placeholder"></div>
+        <h3>Producto 4</h3>
+        <div class="price">$1,049 MXN</div>
       </div>
 
     </div>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <h4>Filtros</h4>
-      <p>✔ Playeras</p>
-      <p>✔ Sudaderas</p>
-      <p>✔ Camisas</p>
-      <p>✔ Pantalones</p>
-
-      <h4>Promociones</h4>
-      <p>🔥 2x1 en artículos seleccionados</p>
-      <p>💳 Meses sin intereses</p>
-    </aside>
-
-  </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
-    © 2026 Tienda de Ropa. Todos los derechos reservados.
+    <div class="footer-container">
+      <div>
+        <h4>PRODUCTOS</h4>
+        <p>Calzado</p>
+        <p>Ropa</p>
+        <p>Accesorios</p>
+      </div>
+
+      <div>
+        <h4>AYUDA</h4>
+        <p>Contacto</p>
+        <p>Envíos</p>
+        <p>Devoluciones</p>
+      </div>
+
+      <div>
+        <h4>EMPRESA</h4>
+        <p>Sobre Nosotros</p>
+        <p>Sustentabilidad</p>
+        <p>Trabaja con Nosotros</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Alducin&Ruiz. Todos los derechos reservados.
+    </div>
   </footer>
 
 </body>
