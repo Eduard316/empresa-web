@@ -2,61 +2,154 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>EMPRESA | Clases de ChatGPT</title>
+  <title>Tienda Urbana | Moda y Estilo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
+      background: #f8fafc;
+      color: #0f172a;
     }
-    .card {
+
+    /* NAVBAR */
+    nav {
       background: #020617;
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 520px;
-      box-shadow: 0 20px 40px rgba(0,0,0,.4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    h1 {
+
+    nav .logo {
       color: #38bdf8;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    .tag {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 8px 14px;
-      background: #38bdf8;
-      color: #020617;
-      border-radius: 999px;
       font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      color: #020617;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+      background: linear-gradient(to right, #0f172a, #020617);
+      color: #e5e7eb;
+    }
+
+    .hero h1 {
+      color: #38bdf8;
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+
+    footer {
+      background: #020617;
+      color: #e5e7eb;
+      text-align: center;
+      padding: 20px;
       font-size: 0.9rem;
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>EMPRESA 🚀</h1>
+
+  <!-- MENU -->
+  <nav>
+    <div class="logo">Tienda Urbana</div>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- INICIO -->
+  <section id="inicio" class="hero">
+    <h1>Moda que define tu estilo</h1>
     <p>
-      Plataforma en construcción para<br>
-      <strong>clases prácticas de ChatGPT</strong>,  
-      automatización y soluciones digitales.
+      Descubre nuestra colección de ropa urbana, casual y moderna.
+      Calidad, estilo y precio en un solo lugar.
     </p>
-    <p>
-      Aquí aprenderás a usar IA aplicada a negocios,
-      productividad y procesos reales.
-    </p>
-    <div class="tag">Próximamente</div>
-  </div>
+  </section>
+
+  <!-- OFERTAS -->
+  <section id="ofertas">
+    <h2>🔥 Ofertas Especiales</h2>
+    <div class="card">
+      <p>✔ 30% de descuento en playeras seleccionadas</p>
+      <p>✔ Promociones por temporada</p>
+      <p>✔ Nuevos modelos cada mes</p>
+    </div>
+  </section>
+
+  <!-- UBICACION -->
+  <section id="ubicacion">
+    <h2>📍 Nuestra Ubicación</h2>
+    <div class="card">
+      <p>Nos encontramos en:</p>
+      <p><strong>Av. Principal #123</strong></p>
+      <p>Ciudad, Estado</p>
+      <p>Horario: Lunes a Sábado de 10:00 a 8:00</p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>📞 Contáctanos</h2>
+    <div class="card">
+      <p>WhatsApp: <strong>55 1234 5678</strong></p>
+      <p>Email: <strong>contacto@tiendaurbana.com</strong></p>
+      <p>Síguenos en redes sociales</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Tienda Urbana. Todos los derechos reservados.
+  </footer>
+
 </body>
 </html>
-
