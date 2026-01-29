@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<!-- Declara que este archivo es HTML5 -->
+<!-- Documento HTML5 -->
 
 <html lang="es">
-<!-- Indica que el idioma del sitio es español -->
+<!-- Idioma español -->
 
 <head>
-  <!-- Configuración básica del documento -->
-
   <meta charset="UTF-8">
-  <!-- Permite usar acentos y caracteres especiales -->
+  <!-- Soporte para acentos y caracteres especiales -->
 
   <title>Alducin&Ruiz | Hombres</title>
-  <!-- Título que aparece en la pestaña del navegador -->
+  <!-- Título de la pestaña -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Hace que el sitio se adapte a celulares y tablets -->
+  <!-- Diseño responsive para móvil -->
 
   <style>
     /* =====================
@@ -22,77 +20,78 @@
        ===================== */
 
     body {
-      margin: 0;                     /* Quita márgenes por defecto */
-      font-family: Arial, sans-serif;/* Fuente limpia y estándar */
-      background: #f8fafc;           /* Color de fondo claro */
-      color: #111;                   /* Color del texto */
-    }
-
-    header {
-      padding: 15px 20px;            /* Espacio interno */
-      border-bottom: 1px solid #ddd; /* Línea separadora abajo */
-    }
-
-    header a {
-      text-decoration: none;         /* Quita subrayado del link */
-      color: #000;                   /* Color negro */
-      font-weight: bold;             /* Texto en negrita */
-      font-size: 1.1rem;             /* Tamaño del texto */
-    }
-
-    h2 {
-      padding: 20px;                 /* Espacio alrededor del título */
-      margin: 0;                     /* Quita margen extra */
+      margin: 0;                     /* Elimina márgenes por defecto */
+      font-family: Arial, sans-serif;/* Fuente limpia */
+      background: #f5f5f5;           /* Fondo gris claro */
+      color: #111;                   /* Texto oscuro */
     }
 
     /* =====================
-       CLOSET HORIZONTAL
+       HEADER
        ===================== */
 
-    .closet {
-      display: flex;                 /* Activa layout flexible */
-      flex-wrap: nowrap;             /* Fuerza una sola fila */
-      gap: 16px;                     /* Espacio entre productos */
-      padding: 20px;                 /* Espacio interno */
-      overflow-x: scroll;            /* Activa scroll horizontal */
-      overflow-y: hidden;            /* Oculta scroll vertical */
-      -webkit-overflow-scrolling: touch;
-      /* Hace el scroll suave en celular */
-    }
-
-    .closet::-webkit-scrollbar {
-      height: 6px;                   /* Altura de la barra de scroll */
-    }
-
-    .closet::-webkit-scrollbar-thumb {
-      background: #ccc;              /* Color del scroll */
-      border-radius: 10px;           /* Bordes redondeados */
-    }
-
-    .closet-item {
-      flex: 0 0 25%;
-      /* Cada producto ocupa el 75% del ancho de la pantalla */
-      max-width: 75%;
+    header {
       background: #fff;              /* Fondo blanco */
-      border: 1px solid #e5e7eb;     /* Borde gris claro */
+      padding: 15px 20px;            /* Espaciado interno */
+      border-bottom: 1px solid #ddd; /* Línea inferior */
     }
 
-    .closet-item img {
-      width: 100%;                   /* Imagen ocupa todo el ancho */
-      height: 320px;                 /* Altura fija */
-      object-fit: cover;             /* Recorta sin deformar */
-      display: block;                /* Evita espacios raros */
+    header a {
+      text-decoration: none;         /* Sin subrayado */
+      color: #000;                   /* Texto negro */
+      font-weight: bold;             /* Negrita */
+      font-size: 1.1rem;             /* Tamaño */
     }
 
-    .closet-item p {
-      margin: 10px 10px 4px;         /* Margen del nombre */
-      font-size: 1rem;               /* Tamaño del texto */
+    /* =====================
+       TITULO
+       ===================== */
+
+    h2 {
+      padding: 20px;                 /* Espacio alrededor */
+      margin: 0;                     /* Sin margen extra */
+      font-size: 1.4rem;             /* Tamaño del título */
     }
 
-    .closet-item span {
-      margin: 0 10px 12px;           /* Margen del precio */
-      display: block;                /* Fuerza salto de línea */
-      font-weight: bold;             /* Precio en negrita */
+    /* =====================
+       GRID DE PRODUCTOS
+       ESTILO SABINO
+       ===================== */
+
+    .products {
+      display: grid;                 /* Activa grid */
+      grid-template-columns: repeat(2, 1fr);
+      /* Dos columnas (ideal móvil) */
+      gap: 20px;                     /* Espacio entre cards */
+      padding: 20px;                 /* Espacio interno */
+    }
+
+    .product-card {
+      background: #fff;              /* Fondo blanco */
+      border: 1px solid #e5e7eb;     /* Borde suave */
+      display: flex;                 /* Layout flexible */
+      flex-direction: column;        /* Vertical */
+    }
+
+    .product-card img {
+      width: 100%;                   /* Imagen ocupa todo */
+      height: 260px;                 /* Altura uniforme */
+      object-fit: cover;             /* Recorte sin deformar */
+      display: block;
+    }
+
+    .product-info {
+      padding: 10px;                 /* Espacio interno */
+    }
+
+    .product-info p {
+      margin: 0 0 6px;               /* Separación inferior */
+      font-size: 0.95rem;            /* Tamaño texto */
+    }
+
+    .product-info span {
+      font-weight: bold;             /* Precio resaltado */
+      font-size: 0.95rem;
     }
 
     /* =====================
@@ -100,79 +99,90 @@
        ===================== */
 
     .back-home {
-      text-align: center;            /* Centra el botón */
-      margin: 40px 0;                /* Espacio arriba y abajo */
+      text-align: center;            /* Centra botón */
+      margin: 40px 0;
     }
 
     .back-home a {
-      display: inline-block;         /* Permite padding */
-      padding: 12px 26px;            /* Tamaño del botón */
-      background: #000;              /* Fondo negro */
-      color: #fff;                   /* Texto blanco */
-      text-decoration: none;         /* Sin subrayado */
-      font-weight: bold;             /* Texto fuerte */
+      display: inline-block;
+      padding: 12px 26px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
     }
 
+    /* =====================
+       FOOTER
+       ===================== */
+
     footer {
-      text-align: center;            /* Texto centrado */
-      padding: 20px;                 /* Espacio interno */
-      font-size: 0.85rem;            /* Texto pequeño */
-      color: #666;                   /* Gris */
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #666;
     }
   </style>
 </head>
 
 <body>
-  <!-- Contenido visible de la página -->
 
   <!-- HEADER -->
   <header>
-    <!-- Link para volver al inicio -->
+    <!-- Regresa al menú principal -->
     <a href="index.html">← ALDUCIN&RUIZ</a>
   </header>
 
-  <!-- TÍTULO DE LA SECCIÓN -->
+  <!-- TITULO -->
   <h2>HOMBRES</h2>
 
-  <!-- CLOSET DESLIZABLE -->
-  <div class="closet">
+  <!-- GRID DE PRODUCTOS -->
+  <div class="products">
 
     <!-- PRODUCTO 1 -->
-    <div class="closet-item">
+    <div class="product-card">
       <img src="images/mezclilla1.jpg" alt="Pantalón Mezclilla">
-      <p>Pantalón Mezclilla</p>
-      <span>$699 MXN</span>
+      <div class="product-info">
+        <p>Pantalón Mezclilla</p>
+        <span>$699 MXN</span>
+      </div>
     </div>
 
     <!-- PRODUCTO 2 -->
-    <div class="closet-item">
+    <div class="product-card">
       <img src="images/pans1.jpg" alt="Pants Deportivo">
-      <p>Pants Deportivo</p>
-      <span>$599 MXN</span>
+      <div class="product-info">
+        <p>Pants Deportivo</p>
+        <span>$599 MXN</span>
+      </div>
     </div>
 
     <!-- PRODUCTO 3 -->
-    <div class="closet-item">
+    <div class="product-card">
       <img src="images/pijama1.jpg" alt="Pijama">
-      <p>Pijama</p>
-      <span>$499 MXN</span>
+      <div class="product-info">
+        <p>Pijama</p>
+        <span>$499 MXN</span>
+      </div>
     </div>
 
     <!-- PRODUCTO 4 -->
-    <div class="closet-item">
+    <div class="product-card">
       <img src="images/militar1.jpg" alt="Conjunto Militar">
-      <p>Conjunto Militar</p>
-      <span>$799 MXN</span>
+      <div class="product-info">
+        <p>Conjunto Militar</p>
+        <span>$799 MXN</span>
+      </div>
     </div>
 
   </div>
 
-  <!-- BOTÓN PARA REGRESAR AL MENÚ PRINCIPAL -->
+  <!-- BOTÓN REGRESAR -->
   <div class="back-home">
     <a href="index.html">⬅ Volver al menú principal</a>
   </div>
 
-  <!-- PIE DE PÁGINA -->
+  <!-- FOOTER -->
   <footer>
     © 2026 Alducin&Ruiz. Todos los derechos reservados.
   </footer>
