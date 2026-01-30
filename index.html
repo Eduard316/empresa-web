@@ -435,7 +435,7 @@
       let li = document.createElement("li");
       li.textContent = producto.nombre + " - $" + producto.precio;
       lista.appendChild(li);
-      total += producto.precio;
+ total += Number(producto.precio);
     });
 
     // 5️⃣ Mostramos el total
