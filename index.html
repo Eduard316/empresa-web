@@ -376,15 +376,30 @@
      Se ejecuta cuando el usuario
      hace clic en el botón
      ========================= */
+  <script>
+  /* =========================
+     FUNCIÓN: agregarProducto
+     Guarda productos en el carrito
+     usando LocalStorage
+     ========================= */
   function agregarProducto(nombre, precio) {
 
-    // Mostramos un mensaje de prueba
-    alert(
-      "Producto agregado:\n" +
-      nombre + " - $" + precio
-    );
+    // 1️⃣ Obtenemos el carrito actual o lo iniciamos vacío
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+    // 2️⃣ Agregamos el nuevo producto
+    carrito.push({
+      nombre: nombre,
+      precio: precio
+    });
+
+    // 3️⃣ Guardamos el carrito actualizado
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    // 4️⃣ Confirmación visual
+    alert("Producto agregado al carrito");
   }
+
 </script>
 </body>
 </html>
