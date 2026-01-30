@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
 
   <!-- Título que aparece en la pestaña del navegador -->
-  <title>Alducin&Ruiz | Tienda Oficial</title>
+  <title>TiendaAlducin | Tienda Oficial</title>
 
   <!-- Hace que el sitio sea responsive en celulares -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -300,7 +300,18 @@
        ========================= -->
   <section class="products">
     <h2>NUESTROS PRODUCTOS</h2>
+<!-- =========================
+     CARRITO (VISTA DE PRUEBA)
+     ========================= -->
+<section class="products">
+  <h2>🛒 Carrito</h2>
 
+  <!-- Lista donde se mostrarán los productos -->
+  <ul id="listaCarrito"></ul>
+
+  <!-- Total del carrito -->
+  <p id="totalCarrito"><strong>Total:</strong> $0</p>
+</section>
     <div class="product-grid">
 
       <!-- Producto 1 -->
@@ -399,7 +410,41 @@
     // 4️⃣ Confirmación visual
     alert("Producto agregado al carrito");
   }
+<script>
+  /* =========================
+     FUNCIÓN: mostrarCarrito
+     Lee LocalStorage y pinta
+     los productos en pantalla
+     ========================= */
+  function mostrarCarrito() {
 
+    // 1️⃣ Obtenemos el carrito
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // 2️⃣ Referencias al HTML
+    let lista = document.getElementById("listaCarrito");
+    let totalTexto = document.getElementById("totalCarrito");
+
+    // 3️⃣ Limpiamos la lista antes de pintar
+    lista.innerHTML = "";
+
+    let total = 0;
+
+    // 4️⃣ Recorremos el carrito
+    carrito.forEach(producto => {
+      let li = document.createElement("li");
+      li.textContent = producto.nombre + " - $" + producto.precio;
+      lista.appendChild(li);
+      total += producto.precio;
+    });
+
+    // 5️⃣ Mostramos el total
+    totalTexto.innerHTML = "<strong>Total:</strong> $" + total;
+  }
+
+  // Ejecutamos la función al cargar la página
+  mostrarCarrito();
+</script>
 </script>
 </body>
 </html>
