@@ -1,135 +1,123 @@
 <!DOCTYPE html>
-<!-- Declaramos que el documento usa HTML5 -->
 <html lang="es">
-<!-- Indicamos que el idioma del sitio es español -->
-
 <head>
-  <!-- Configuración de caracteres para permitir acentos y ñ -->
   <meta charset="UTF-8">
-
-  <!-- Título que aparece en la pestaña del navegador -->
   <title>TiendaAlducin | Tienda Oficial</title>
-
-  <!-- Hace que el sitio sea responsive en celulares -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- =========================
-       ESTILOS CSS DEL SITIO
-       ========================= -->
   <style>
-
     /* =========================
-       RESET BÁSICO
-       Elimina márgenes y estilos por defecto del navegador
+       PALETA DE COLORES
        ========================= */
+    :root {
+      --cappuccino: #EAD7C4;
+      --latte: #C7A17A;
+      --cinnamon: #A86F4C;
+      --vanilla: #F9F4EE;
+      --dark: #2B2B2B;
+    }
+
+    /* RESET */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    /* =========================
-       ESTILOS GENERALES
-       ========================= */
     body {
-      font-family: Arial, Helvetica, sans-serif; /* Fuente principal */
-      color: #111; /* Color del texto */
-      background: #fff; /* Fondo blanco */
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--vanilla);
     }
 
-    /* =========================
-       TOP BAR (PROMOCIÓN)
-       ========================= */
+    /* TOP BAR */
     .top-bar {
-      background: #000; /* Fondo negro */
-      color: #fff; /* Texto blanco */
+      background: var(--cinnamon);
+      color: #fff;
       text-align: center;
       padding: 6px;
       font-size: 0.85rem;
     }
 
-    /* =========================
-       HEADER / NAVEGACIÓN
-       ========================= */
+    /* HEADER */
     header {
-      border-bottom: 1px solid #e5e7eb; /* Línea inferior */
+      background: var(--vanilla);
+      border-bottom: 1px solid var(--latte);
     }
 
     .nav-container {
-      max-width: 1300px; /* Ancho máximo */
-      margin: auto; /* Centrado horizontal */
+      max-width: 1300px;
+      margin: auto;
       padding: 15px 20px;
-      display: flex; /* Flexbox */
-      align-items: center; /* Alineación vertical */
-      justify-content: space-between; /* Espacio entre elementos */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Logo de la marca */
     .logo {
       font-size: 1.4rem;
       font-weight: bold;
+      color: var(--cinnamon);
       letter-spacing: 1px;
     }
 
-    /* Menú principal */
     nav ul {
-      list-style: none; /* Quita viñetas */
+      list-style: none;
       display: flex;
-      gap: 25px; /* Espacio entre opciones */
-    }
-
-    nav ul li {
-      font-weight: bold;
-      font-size: 0.95rem;
+      gap: 25px;
     }
 
     nav ul li a {
-      text-decoration: none; /* Quita subrayado */
-      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--dark);
     }
 
-    /* Área derecha del menú (Buscar, Cuenta, Carrito) */
+    nav ul li a:hover {
+      color: var(--cinnamon);
+    }
+
     .nav-right {
       display: flex;
       gap: 15px;
       font-size: 0.9rem;
     }
 
-    /* =========================
-       HERO (SECCIÓN PRINCIPAL)
-       ========================= */
+    /* HERO */
     .hero {
       padding: 80px 20px;
-      background: #f5f5f5;
+      background: linear-gradient(135deg, var(--cappuccino), var(--latte));
       text-align: center;
+      color: #fff;
     }
 
     .hero h1 {
       font-size: 2.8rem;
       margin-bottom: 15px;
-      letter-spacing: 1px;
     }
 
     .hero p {
-      max-width: 600px; /* Limita ancho del texto */
+      max-width: 600px;
       margin: auto;
       font-size: 1.1rem;
     }
 
-    /* Botón principal del hero */
     .hero .btn {
       display: inline-block;
       margin-top: 30px;
       padding: 14px 28px;
-      background: #000;
+      background: var(--cinnamon);
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      border-radius: 4px;
     }
 
-    /* =========================
-       SECCIÓN DE PRODUCTOS
-       ========================= */
+    .hero .btn:hover {
+      background: #8f5c3d;
+    }
+
+    /* PRODUCTOS */
     .products {
       max-width: 1300px;
       margin: 60px auto;
@@ -141,44 +129,60 @@
       margin-bottom: 30px;
     }
 
-    /* Grid automático de productos */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 25px;
     }
 
-    /* Tarjeta individual del producto */
     .product-card {
-      border: 1px solid #e5e7eb;
+      background: #fff;
+      border: 1px solid var(--latte);
       padding: 20px;
       display: flex;
       flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Placeholder para imagen del producto */
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
     .product-placeholder {
-      background: #e5e7eb;
+      background: var(--cappuccino);
       height: 200px;
       margin-bottom: 15px;
     }
 
-    .product-card h3 {
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
-
-    /* Precio del producto */
     .price {
       font-weight: bold;
       margin-top: 10px;
     }
 
-    /* =========================
-       FOOTER
-       ========================= */
+    .product-card button {
+      margin-top: auto;
+      padding: 10px;
+      background: var(--latte);
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: var(--cinnamon);
+    }
+
+    /* CARRITO */
+    #listaCarrito {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
     footer {
-      background: #000;
+      background: var(--cinnamon);
       color: #fff;
       padding: 60px 20px;
       margin-top: 60px;
@@ -192,31 +196,18 @@
       gap: 30px;
     }
 
-    footer h4 {
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-      margin: 6px 0;
-    }
-
     .footer-bottom {
       text-align: center;
       margin-top: 40px;
       font-size: 0.8rem;
-      color: #aaa;
+      color: var(--cappuccino);
     }
 
-    /* =========================
-       RESPONSIVE - CELULAR
-       ========================= */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-
       .nav-container {
         flex-direction: column;
         gap: 15px;
-        text-align: center;
       }
 
       nav ul {
@@ -225,45 +216,26 @@
       }
 
       .nav-right {
-        display: none; /* Oculta opciones en móvil */
+        display: none;
       }
 
       .hero h1 {
         font-size: 1.8rem;
       }
-
-      .product-placeholder {
-        height: 160px;
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       BARRA SUPERIOR PROMOCIONAL
-       ========================= -->
   <div class="top-bar">
     ENVÍO GRATIS EN PEDIDOS MAYORES A $999
   </div>
 
-  <!-- =========================
-       HEADER / MENÚ PRINCIPAL
-       ========================= -->
   <header>
     <div class="nav-container">
-
-      <!-- Logo -->
       <div class="logo">ALDUCIN&RUIZ</div>
 
-      <!-- Menú de navegación -->
       <nav>
         <ul>
           <li><a href="#">HOMBRES</a></li>
@@ -273,178 +245,100 @@
         </ul>
       </nav>
 
-      <!-- Acciones del usuario -->
       <div class="nav-right">
         <span>Buscar</span>
         <span>Cuenta</span>
         <span>Carrito</span>
       </div>
-
     </div>
   </header>
 
-  <!-- =========================
-       HERO PRINCIPAL
-       ========================= -->
   <section class="hero">
     <h1>IMPULSA TU ESTILO</h1>
-    <p>
-      Moda urbana y deportiva diseñada para marcar presencia.
-      Calidad, diseño y actitud.
-    </p>
+    <p>Moda urbana y deportiva diseñada para marcar presencia.</p>
     <a href="#" class="btn">COMPRAR AHORA</a>
   </section>
 
-  <!-- =========================
-       PRODUCTOS
-       ========================= -->
   <section class="products">
     <h2>NUESTROS PRODUCTOS</h2>
-<!-- =========================
-     CARRITO (VISTA DE PRUEBA)
-     ========================= -->
-<section class="products">
-  <h2>🛒 Carrito</h2>
 
-  <!-- Lista donde se mostrarán los productos -->
-  <ul id="listaCarrito"></ul>
-
-  <!-- Total del carrito -->
-  <p id="totalCarrito"><strong>Total:</strong> $0</p>
-</section>
     <div class="product-grid">
-
-      <!-- Producto 1 -->
       <div class="product-card">
         <div class="product-placeholder"></div>
         <h3>Producto 1</h3>
         <div class="price">$999 MXN</div>
-        <button onclick="agregarProducto('Producto 1', 999)">
-  Agregar al carrito
-</button>
+        <button onclick="agregarProducto('Producto 1', 999)">Agregar al carrito</button>
       </div>
 
-      <!-- Producto 2 -->
       <div class="product-card">
         <div class="product-placeholder"></div>
         <h3>Producto 2</h3>
         <div class="price">$899 MXN</div>
+        <button onclick="agregarProducto('Producto 2', 899)">Agregar al carrito</button>
       </div>
-
-      <!-- Producto 3 -->
-      <div class="product-card">
-        <div class="product-placeholder"></div>
-        <h3>Producto 3</h3>
-        <div class="price">$1,199 MXN</div>
-      </div>
-
-      <!-- Producto 4 -->
-      <div class="product-card">
-        <div class="product-placeholder"></div>
-        <h3>Producto 4</h3>
-        <div class="price">$1,049 MXN</div>
-      </div>
-
     </div>
   </section>
 
-  <!-- =========================
-       FOOTER
-       ========================= -->
+  <section class="products">
+    <h2>🛒 Carrito</h2>
+    <ul id="listaCarrito"></ul>
+    <p id="totalCarrito"><strong>Total:</strong> $0</p>
+  </section>
+
   <footer>
     <div class="footer-container">
-
       <div>
         <h4>PRODUCTOS</h4>
         <p>Calzado</p>
         <p>Ropa</p>
         <p>Accesorios</p>
       </div>
-
       <div>
         <h4>AYUDA</h4>
         <p>Contacto</p>
         <p>Envíos</p>
         <p>Devoluciones</p>
       </div>
-
       <div>
         <h4>EMPRESA</h4>
         <p>Sobre Nosotros</p>
         <p>Sustentabilidad</p>
         <p>Trabaja con Nosotros</p>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       © 2026 Alducin&Ruiz. Todos los derechos reservados.
     </div>
   </footer>
-<script>
-  /* =========================
-     FUNCIÓN: agregarProducto
-     Se ejecuta cuando el usuario
-     hace clic en el botón
-     ========================= */
+
   <script>
-  /* =========================
-     FUNCIÓN: agregarProducto
-     Guarda productos en el carrito
-     usando LocalStorage
-     ========================= */
-  function agregarProducto(nombre, precio) {
+    function agregarProducto(nombre, precio) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ nombre, precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito();
+    }
 
-    // 1️⃣ Obtenemos el carrito actual o lo iniciamos vacío
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    function mostrarCarrito() {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      let lista = document.getElementById("listaCarrito");
+      let totalTexto = document.getElementById("totalCarrito");
 
-    // 2️⃣ Agregamos el nuevo producto
-    carrito.push({
-      nombre: nombre,
-      precio: precio
-    });
+      lista.innerHTML = "";
+      let total = 0;
 
-    // 3️⃣ Guardamos el carrito actualizado
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+      carrito.forEach(p => {
+        let li = document.createElement("li");
+        li.textContent = `${p.nombre} - $${p.precio}`;
+        lista.appendChild(li);
+        total += p.precio;
+      });
 
-    // 4️⃣ Confirmación visual
-    alert("Producto agregado al carrito");
-  }
-<script>
-  /* =========================
-     FUNCIÓN: mostrarCarrito
-     Lee LocalStorage y pinta
-     los productos en pantalla
-     ========================= */
-  function mostrarCarrito() {
+      totalTexto.innerHTML = `<strong>Total:</strong> $${total}`;
+    }
 
-    // 1️⃣ Obtenemos el carrito
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    mostrarCarrito();
+  </script>
 
-    // 2️⃣ Referencias al HTML
-    let lista = document.getElementById("listaCarrito");
-    let totalTexto = document.getElementById("totalCarrito");
-
-    // 3️⃣ Limpiamos la lista antes de pintar
-    lista.innerHTML = "";
-
-    let total = 0;
-
-    // 4️⃣ Recorremos el carrito
-    carrito.forEach(producto => {
-      let li = document.createElement("li");
-      li.textContent = producto.nombre + " - $" + producto.precio;
-      lista.appendChild(li);
- total += Number(producto.precio);
-    });
-
-    // 5️⃣ Mostramos el total
-    totalTexto.innerHTML = "<strong>Total:</strong> $" + total;
-  }
-
-  // Ejecutamos la función al cargar la página
-  mostrarCarrito();
-</script>
-</script>
 </body>
 </html>
