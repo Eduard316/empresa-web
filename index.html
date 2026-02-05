@@ -1,344 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Tienda YISSEM | Tienda Oficial</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>YISSEM | Tienda Oficial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* =========================
-       PALETA DE COLORES
-       ========================= */
-    :root {
-      --cappuccino: #EAD7C4;
-      --latte: #C7A17A;
-      --cinnamon: #A86F4C;
-      --vanilla: #F9F4EE;
-      --dark: #2B2B2B;
-    }
+<style>
+:root{
+  --cappuccino:#EAD7C4;
+  --latte:#C7A17A;
+  --cinnamon:#A86F4C;
+  --vanilla:#F9F4EE;
+  --dark:#2B2B2B;
+}
 
-    /* RESET */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--vanilla);
+  color:var(--dark);
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--dark);
-      background: var(--vanilla);
-    }
+/* TOP BAR */
+.top-bar{
+  background:var(--cinnamon);
+  color:#fff;
+  text-align:center;
+  padding:6px;
+  font-size:.85rem;
+}
 
-    /* TOP BAR */
-    .top-bar {
-      background: var(--cinnamon);
-      color: #fff;
-      text-align: center;
-      padding: 6px;
-      font-size: 0.85rem;
-    }
+/* HEADER */
+header{
+  background:var(--vanilla);
+  border-bottom:1px solid var(--latte);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-weight:bold;
+  letter-spacing:2px;
+  color:var(--cinnamon);
+}
 
-    /* HEADER */
-    header {
-      background: var(--vanilla);
-      border-bottom: 1px solid var(--latte);
-    }
+/* HERO */
+.hero{
+  padding:70px 20px;
+  text-align:center;
+  color:#fff;
+  background:linear-gradient(135deg,var(--cappuccino),var(--latte));
+}
+.hero h1{font-size:2.3rem}
+.hero p{margin-top:10px}
 
-    .nav-container {
-      max-width: 1300px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* PRODUCTS */
+.products{
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 20px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
+}
+.img{
+  height:180px;
+  background:var(--cappuccino);
+  border-radius:8px;
+  margin-bottom:12px;
+}
+.card button{
+  margin-top:auto;
+  padding:10px;
+  background:var(--latte);
+  border:none;
+  color:#fff;
+  font-weight:bold;
+  border-radius:20px;
+  cursor:pointer;
+}
+.card button:active{
+  transform:scale(.95);
+  background:var(--cinnamon);
+}
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--cinnamon);
-      letter-spacing: 1px;
-    }
+/* MINI CART */
+.cart{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--cinnamon);
+  color:#fff;
+  padding:14px 18px;
+  border-radius:30px;
+  font-weight:bold;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  cursor:pointer;
+  z-index:1000;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
+/* ANIMATION */
+.bounce{
+  animation:bounce .4s;
+}
+@keyframes bounce{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
 
-    nav ul li a {
-      text-decoration: none;
-      font-weight: bold;
-      color: var(--dark);
-    }
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.modal-box{
+  background:#fff;
+  width:90%;
+  max-width:420px;
+  padding:20px;
+  border-radius:12px;
+}
+.modal-box h3{margin-bottom:10px}
+.modal-box input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+}
+.modal-box button{
+  width:100%;
+  padding:12px;
+  background:var(--cinnamon);
+  border:none;
+  color:#fff;
+  font-weight:bold;
+  border-radius:25px;
+  margin-top:8px;
+  cursor:pointer;
+}
 
-    nav ul li a:hover {
-      color: var(--cinnamon);
-    }
-
-    .nav-right {
-      display: flex;
-      gap: 15px;
-      font-size: 0.9rem;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 80px 20px;
-      background: linear-gradient(135deg, var(--cappuccino), var(--latte));
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: auto;
-      font-size: 1.1rem;
-    }
-
-    .hero .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
-      background: var(--cinnamon);
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-    }
-
-    .hero .btn:hover {
-      background: #8f5c3d;
-    }
-
-    /* PRODUCTOS */
-    .products {
-      max-width: 1300px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    .products h2 {
-      font-size: 1.6rem;
-      margin-bottom: 30px;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .product-card {
-      background: #fff;
-      border: 1px solid var(--latte);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    .product-placeholder {
-      background: var(--cappuccino);
-      height: 200px;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .product-card button {
-      margin-top: auto;
-      padding: 10px;
-      background: var(--latte);
-      color: #fff;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .product-card button:hover {
-      background: var(--cinnamon);
-    }
-
-    /* CARRITO */
-    #listaCarrito {
-      list-style: none;
-      margin-bottom: 10px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--cinnamon);
-      color: #fff;
-      padding: 60px 20px;
-      margin-top: 60px;
-    }
-
-    .footer-container {
-      max-width: 1300px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: var(--cappuccino);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .nav-right {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+/* MOBILE APP FEEL */
+@media(max-width:768px){
+  body{padding-bottom:80px}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="top-bar">
-    ENVÍO GRATIS EN PEDIDOS MAYORES A $999
+<div class="top-bar">ENVÍO GRATIS EN COMPRAS MAYORES A $999</div>
+
+<header>
+  <div class="nav">
+    <div class="logo">YISSEM</div>
   </div>
+</header>
 
-  <header>
-    <div class="nav-container">
-      <div class="logo">YISSEM</div>
+<section class="hero">
+  <h1>YISSEM</h1>
+  <p>Estilo que se siente</p>
+</section>
 
-      <nav>
-        <ul>
-          <li><a href="#">HOMBRES</a></li>
-          <li><a href="#">MUJERES</a></li>
-          <li><a href="#">NOVEDADES</a></li>
-          <li><a href="#">OFERTAS</a></li>
-        </ul>
-      </nav>
+<section class="products">
+  <div class="grid">
 
-      <div class="nav-right">
-        <span>Buscar</span>
-        <span>Cuenta</span>
-        <span>Carrito</span>
-      </div>
+    <div class="card">
+      <div class="img"></div>
+      <h4>Sudadera YISSEM</h4>
+      <strong>$999</strong>
+      <button onclick="add('Sudadera YISSEM',999,this)">Agregar</button>
     </div>
-  </header>
 
-  <section class="hero">
-    <h1>IMPULSA TU ESTILO</h1>
-    <p>Moda urbana y deportiva diseñada para marcar presencia.</p>
-    <a href="#" class="btn">COMPRAR AHORA</a>
-  </section>
-
-  <section class="products">
-    <h2>NUESTROS PRODUCTOS</h2>
-
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-placeholder"></div>
-        <h3>Producto 1</h3>
-        <div class="price">$999 MXN</div>
-        <button onclick="agregarProducto('Producto 1', 999)">Agregar al carrito</button>
-      </div>
-
-      <div class="product-card">
-        <div class="product-placeholder"></div>
-        <h3>Producto 2</h3>
-        <div class="price">$899 MXN</div>
-        <button onclick="agregarProducto('Producto 2', 899)">Agregar al carrito</button>
-      </div>
+    <div class="card">
+      <div class="img"></div>
+      <h4>Pants Urban</h4>
+      <strong>$899</strong>
+      <button onclick="add('Pants Urban',899,this)">Agregar</button>
     </div>
-  </section>
 
-  <section class="products">
-    <h2>🛒 Carrito</h2>
-    <ul id="listaCarrito"></ul>
-    <p id="totalCarrito"><strong>Total:</strong> $0</p>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="footer-container">
-      <div>
-        <h4>PRODUCTOS</h4>
-        <p>Calzado</p>
-        <p>Ropa</p>
-        <p>Accesorios</p>
-      </div>
-      <div>
-        <h4>AYUDA</h4>
-        <p>Contacto</p>
-        <p>Envíos</p>
-        <p>Devoluciones</p>
-      </div>
-      <div>
-        <h4>EMPRESA</h4>
-        <p>Sobre Nosotros</p>
-        <p>Sustentabilidad</p>
-        <p>Trabaja con Nosotros</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 YISSEM. Todos los derechos reservados.
-    </div>
-  </footer>
+<div class="cart" onclick="openCheckout()">🛒 <span id="count">0</span></div>
 
-  <script>
-    function agregarProducto(nombre, precio) {
-      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      carrito.push({ nombre, precio });
-      localStorage.setItem("carrito", JSON.stringify(carrito));
-      mostrarCarrito();
-    }
+<div class="modal" id="checkout">
+  <div class="modal-box">
+    <h3>Checkout</h3>
+    <div id="items"></div>
+    <p><strong>Total:</strong> $<span id="total">0</span></p>
 
-    function mostrarCarrito() {
-      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      let lista = document.getElementById("listaCarrito");
-      let totalTexto = document.getElementById("totalCarrito");
+    <input id="name" placeholder="Nombre">
+    <input id="phone" placeholder="Teléfono">
+    <input id="address" placeholder="Dirección">
 
-      lista.innerHTML = "";
-      let total = 0;
+    <button onclick="sendWhats()">Finalizar por WhatsApp</button>
+    <button onclick="closeCheckout()" style="background:#ccc;color:#000">Cerrar</button>
+  </div>
+</div>
 
-      carrito.forEach(p => {
-        let li = document.createElement("li");
-        li.textContent = `${p.nombre} - $${p.precio}`;
-        lista.appendChild(li);
-        total += p.precio;
-      });
+<script>
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
 
-      totalTexto.innerHTML = `<strong>Total:</strong> $${total}`;
-    }
+function add(name,price,btn){
+  cart.push({name,price});
+  localStorage.setItem("cart",JSON.stringify(cart));
+  btn.classList.add("bounce");
+  setTimeout(()=>btn.classList.remove("bounce"),300);
+  update();
+}
 
-    mostrarCarrito();
-  </script>
+function update(){
+  document.getElementById("count").innerText=cart.length;
+}
+
+function openCheckout(){
+  let items=document.getElementById("items");
+  let total=0;
+  items.innerHTML="";
+  cart.forEach(p=>{
+    items.innerHTML+=`<p>${p.name} - $${p.price}</p>`;
+    total+=p.price;
+  });
+  document.getElementById("total").innerText=total;
+  document.getElementById("checkout").style.display="flex";
+}
+
+function closeCheckout(){
+  document.getElementById("checkout").style.display="none";
+}
+
+function sendWhats(){
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  let address=document.getElementById("address").value;
+  let total=document.getElementById("total").innerText;
+
+  let msg=`Hola, soy ${name}%0AQuiero comprar:%0A`;
+  cart.forEach(p=>msg+=`- ${p.name} $${p.price}%0A`);
+  msg+=`Total: $${total}%0ADirección: ${address}`;
+
+  window.open(`https://wa.me/52TU_NUMERO?text=${msg}`,"_blank");
+}
+
+update();
+</script>
 
 </body>
 </html>
