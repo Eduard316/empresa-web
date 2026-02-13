@@ -83,10 +83,15 @@ header{
   flex-direction:column;
 }
 .img{
-  height:180px;
-  background:var(--cappuccino);
+  height:200px;
   border-radius:8px;
   margin-bottom:12px;
+  overflow:hidden;
+}
+.img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 .card button{
   margin-top:auto;
@@ -118,16 +123,6 @@ header{
   z-index:1000;
 }
 
-/* ANIMATION */
-.bounce{
-  animation:bounce .4s;
-}
-@keyframes bounce{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.2)}
-  100%{transform:scale(1)}
-}
-
 /* MODAL */
 .modal{
   position:fixed;
@@ -145,7 +140,6 @@ header{
   padding:20px;
   border-radius:12px;
 }
-.modal-box h3{margin-bottom:10px}
 .modal-box input{
   width:100%;
   padding:10px;
@@ -161,11 +155,6 @@ header{
   border-radius:25px;
   margin-top:8px;
   cursor:pointer;
-}
-
-/* MOBILE APP FEEL */
-@media(max-width:768px){
-  body{padding-bottom:80px}
 }
 </style>
 </head>
@@ -188,86 +177,82 @@ header{
 <section class="products">
   <div class="grid">
 
+    <!-- PRODUCTO 1 -->
     <div class="card">
-      <div class="img"></div>
+      <div class="img">
+        <img src="imagenes/producto1.jpg" alt="Producto 1">
+      </div>
       <h4>Sudadera YISSEM</h4>
       <strong>$999</strong>
       <button onclick="add('Sudadera YISSEM',999,this)">Agregar</button>
     </div>
 
+    <!-- PRODUCTO 2 -->
     <div class="card">
-      <div class="img"></div>
+      <div class="img">
+        <img src="imagenes/producto2.jpg" alt="Producto 2">
+      </div>
       <h4>Pants Urban</h4>
       <strong>$899</strong>
       <button onclick="add('Pants Urban',899,this)">Agregar</button>
     </div>
 
+    <!-- PRODUCTOS 3 AL 10 -->
+    <div class="card">
+      <div class="img"><img src="imagenes/producto3.jpg"></div>
+      <h4>Playera Minimal</h4>
+      <strong>$599</strong>
+      <button onclick="add('Playera Minimal',599,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto4.jpg"></div>
+      <h4>Chaqueta Oversize</h4>
+      <strong>$1299</strong>
+      <button onclick="add('Chaqueta Oversize',1299,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto5.jpg"></div>
+      <h4>Gorra Street</h4>
+      <strong>$399</strong>
+      <button onclick="add('Gorra Street',399,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto6.jpg"></div>
+      <h4>Hoodie Coffee</h4>
+      <strong>$1099</strong>
+      <button onclick="add('Hoodie Coffee',1099,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto7.jpg"></div>
+      <h4>Jogger Beige</h4>
+      <strong>$849</strong>
+      <button onclick="add('Jogger Beige',849,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto8.jpg"></div>
+      <h4>Playera Latte</h4>
+      <strong>$649</strong>
+      <button onclick="add('Playera Latte',649,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto9.jpg"></div>
+      <h4>Camisa Slim</h4>
+      <strong>$899</strong>
+      <button onclick="add('Camisa Slim',899,this)">Agregar</button>
+    </div>
+
+    <div class="card">
+      <div class="img"><img src="imagenes/producto10.jpg"></div>
+      <h4>Sudadera Premium</h4>
+      <strong>$1399</strong>
+      <button onclick="add('Sudadera Premium',1399,this)">Agregar</button>
+    </div>
+
   </div>
 </section>
-
-<div class="cart" onclick="openCheckout()">🛒 <span id="count">0</span></div>
-
-<div class="modal" id="checkout">
-  <div class="modal-box">
-    <h3>Checkout</h3>
-    <div id="items"></div>
-    <p><strong>Total:</strong> $<span id="total">0</span></p>
-
-    <input id="name" placeholder="Nombre">
-    <input id="phone" placeholder="Teléfono">
-    <input id="address" placeholder="Dirección">
-
-    <button onclick="sendWhats()">Finalizar por WhatsApp</button>
-    <button onclick="closeCheckout()" style="background:#ccc;color:#000">Cerrar</button>
-  </div>
-</div>
-
-<script>
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
-
-function add(name,price,btn){
-  cart.push({name,price});
-  localStorage.setItem("cart",JSON.stringify(cart));
-  btn.classList.add("bounce");
-  setTimeout(()=>btn.classList.remove("bounce"),300);
-  update();
-}
-
-function update(){
-  document.getElementById("count").innerText=cart.length;
-}
-
-function openCheckout(){
-  let items=document.getElementById("items");
-  let total=0;
-  items.innerHTML="";
-  cart.forEach(p=>{
-    items.innerHTML+=`<p>${p.name} - $${p.price}</p>`;
-    total+=p.price;
-  });
-  document.getElementById("total").innerText=total;
-  document.getElementById("checkout").style.display="flex";
-}
-
-function closeCheckout(){
-  document.getElementById("checkout").style.display="none";
-}
-
-function sendWhats(){
-  let name=document.getElementById("name").value;
-  let phone=document.getElementById("phone").value;
-  let address=document.getElementById("address").value;
-  let total=document.getElementById("total").innerText;
-
-  let msg=`Hola, soy ${name}%0AQuiero comprar:%0A`;
-  cart.forEach(p=>msg+=`- ${p.name} $${p.price}%0A`);
-  msg+=`Total: $${total}%0ADirección: ${address}`;
-
-  window.open(`https://wa.me/525533076339?text=${msg}`,"_blank");
-}
-
-update();
-</script>
-
-</body>
-</html>
