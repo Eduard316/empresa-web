@@ -82,17 +82,46 @@ header{
   display:flex;
   flex-direction:column;
 }
+
+/* ========================= */
+/* EFECTO PREMIUM EN IMAGEN */
+/* ========================= */
+
 .img{
   height:200px;
   border-radius:8px;
   margin-bottom:12px;
   overflow:hidden;
+  position:relative;
+  cursor:pointer;
 }
+
 .img img{
   width:100%;
-  height:100%;
+  height:110%;
   object-fit:cover;
+  transition:transform .6s ease;
 }
+
+/* Zoom + desplazamiento */
+.img:hover img{
+  transform:scale(1.15) translateY(-10px);
+}
+
+/* Capa elegante tipo editorial */
+.img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.35), transparent);
+  opacity:0;
+  transition:opacity .4s ease;
+}
+
+.img:hover::after{
+  opacity:1;
+}
+
 .card button{
   margin-top:auto;
   padding:10px;
@@ -102,6 +131,7 @@ header{
   font-weight:bold;
   border-radius:20px;
   cursor:pointer;
+  transition:all .2s ease;
 }
 .card button:active{
   transform:scale(.95);
@@ -121,40 +151,6 @@ header{
   box-shadow:0 10px 30px rgba(0,0,0,.3);
   cursor:pointer;
   z-index:1000;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.5);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-}
-.modal-box{
-  background:#fff;
-  width:90%;
-  max-width:420px;
-  padding:20px;
-  border-radius:12px;
-}
-.modal-box input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-}
-.modal-box button{
-  width:100%;
-  padding:12px;
-  background:var(--cinnamon);
-  border:none;
-  color:#fff;
-  font-weight:bold;
-  border-radius:25px;
-  margin-top:8px;
-  cursor:pointer;
 }
 </style>
 </head>
@@ -180,79 +176,105 @@ header{
     <!-- PRODUCTO 1 -->
     <div class="card">
       <div class="img">
-        <img src="imagenes/producto1.jpg" alt="Producto 1">
+        <img src="imagenes/producto1.jpg" alt="">
       </div>
       <h4>Sudadera YISSEM</h4>
       <strong>$999</strong>
-      <button onclick="add('Sudadera YISSEM',999,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
     <!-- PRODUCTO 2 -->
     <div class="card">
       <div class="img">
-        <img src="imagenes/producto2.jpg" alt="Producto 2">
+        <img src="imagenes/producto2.jpg" alt="">
       </div>
       <h4>Pants Urban</h4>
       <strong>$899</strong>
-      <button onclick="add('Pants Urban',899,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
-    <!-- PRODUCTOS 3 AL 10 -->
+    <!-- PRODUCTO 3 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto3.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto3.jpg" alt="">
+      </div>
       <h4>Playera Minimal</h4>
       <strong>$599</strong>
-      <button onclick="add('Playera Minimal',599,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 4 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto4.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto4.jpg" alt="">
+      </div>
       <h4>Chaqueta Oversize</h4>
       <strong>$1299</strong>
-      <button onclick="add('Chaqueta Oversize',1299,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 5 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto5.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto5.jpg" alt="">
+      </div>
       <h4>Gorra Street</h4>
       <strong>$399</strong>
-      <button onclick="add('Gorra Street',399,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 6 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto6.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto6.jpg" alt="">
+      </div>
       <h4>Hoodie Coffee</h4>
       <strong>$1099</strong>
-      <button onclick="add('Hoodie Coffee',1099,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 7 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto7.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto7.jpg" alt="">
+      </div>
       <h4>Jogger Beige</h4>
       <strong>$849</strong>
-      <button onclick="add('Jogger Beige',849,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 8 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto8.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto8.jpg" alt="">
+      </div>
       <h4>Playera Latte</h4>
       <strong>$649</strong>
-      <button onclick="add('Playera Latte',649,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 9 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto9.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto9.jpg" alt="">
+      </div>
       <h4>Camisa Slim</h4>
       <strong>$899</strong>
-      <button onclick="add('Camisa Slim',899,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
+    <!-- PRODUCTO 10 -->
     <div class="card">
-      <div class="img"><img src="imagenes/producto10.jpg"></div>
+      <div class="img">
+        <img src="imagenes/producto10.jpg" alt="">
+      </div>
       <h4>Sudadera Premium</h4>
       <strong>$1399</strong>
-      <button onclick="add('Sudadera Premium',1399,this)">Agregar</button>
+      <button>Agregar</button>
     </div>
 
   </div>
 </section>
+
+</body>
+</html>
