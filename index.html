@@ -67,10 +67,7 @@ header{
   gap:25px;
 }
 
-/* ========================= */
-/* ARMARIO GIRATORIO 3D */
-/* ========================= */
-
+/* ARMARIO GIRATORIO */
 .card{
   perspective:1000px;
   height:320px;
@@ -164,51 +161,127 @@ header{
 <section class="products">
   <div class="grid">
 
-    <!-- PRODUCTO -->
-    <div class="card" onclick="this.classList.toggle('flipped')">
-      <div class="card-inner">
-
-        <div class="card-front">
-          <img src="imagenes/producto1.jpg">
-        </div>
-
-        <div class="card-back">
-          <h3>Sudadera YISSEM</h3>
-          <p>Algodón premium • Corte urbano • Edición limitada</p>
-          <strong>$999</strong>
-          <button>Agregar al carrito</button>
-        </div>
-
+    <!-- PRODUCTO 1 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto1.jpg"></div>
+      <div class="card-back">
+        <h3>Sudadera YISSEM</h3>
+        <p>Algodón premium • Corte urbano</p>
+        <strong>$999</strong>
+        <button>Agregar</button>
       </div>
-    </div>
+    </div></div>
 
-    <!-- DUPLICA PARA MÁS PRODUCTOS -->
-
-    <div class="card" onclick="this.classList.toggle('flipped')">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="imagenes/producto2.jpg">
-        </div>
-        <div class="card-back">
-          <h3>Pants Urban</h3>
-          <p>Diseño minimalista • Comodidad total</p>
-          <strong>$899</strong>
-          <button>Agregar al carrito</button>
-        </div>
+    <!-- PRODUCTO 2 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto2.jpg"></div>
+      <div class="card-back">
+        <h3>Pants Urban</h3>
+        <p>Comodidad total • Diseño moderno</p>
+        <strong>$899</strong>
+        <button>Agregar</button>
       </div>
-    </div>
+    </div></div>
+
+    <!-- PRODUCTO 3 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto3.jpg"></div>
+      <div class="card-back">
+        <h3>Playera Minimal</h3>
+        <p>Estilo limpio • 100% algodón</p>
+        <strong>$599</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 4 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto4.jpg"></div>
+      <div class="card-back">
+        <h3>Chaqueta Oversize</h3>
+        <p>Corte amplio • Street fashion</p>
+        <strong>$1299</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 5 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto5.jpg"></div>
+      <div class="card-back">
+        <h3>Gorra Street</h3>
+        <p>Ajustable • Edición urbana</p>
+        <strong>$399</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 6 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto6.jpg"></div>
+      <div class="card-back">
+        <h3>Hoodie Coffee</h3>
+        <p>Color exclusivo • Suave interior</p>
+        <strong>$1099</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 7 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto7.jpg"></div>
+      <div class="card-back">
+        <h3>Jogger Beige</h3>
+        <p>Confort diario • Estilo neutro</p>
+        <strong>$849</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 8 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto8.jpg"></div>
+      <div class="card-back">
+        <h3>Playera Latte</h3>
+        <p>Suave • Diseño exclusivo</p>
+        <strong>$649</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 9 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto9.jpg"></div>
+      <div class="card-back">
+        <h3>Camisa Slim</h3>
+        <p>Elegancia casual</p>
+        <strong>$899</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
+
+    <!-- PRODUCTO 10 -->
+    <div class="card"><div class="card-inner">
+      <div class="card-front"><img src="imagenes/producto10.jpg"></div>
+      <div class="card-back">
+        <h3>Sudadera Premium</h3>
+        <p>Edición limitada • Tela gruesa</p>
+        <strong>$1399</strong>
+        <button>Agregar</button>
+      </div>
+    </div></div>
 
   </div>
 </section>
 
 <script>
-/* Opcional: cerrar otros cuando se abre uno */
 const cards = document.querySelectorAll('.card');
 cards.forEach(card=>{
   card.addEventListener('click', function(){
     cards.forEach(c=>{
       if(c!==this) c.classList.remove('flipped');
     });
+    this.classList.toggle('flipped');
   });
 });
 </script>
